@@ -59,28 +59,17 @@ console.log("You got it!");
 
 // 3. For In Loops
 // looping over objects
-var candyPrices = {
-    chocolate: 1.00, 
-    caramel: 2.00, 
-    skittles: 3.00, 
-    gobstoppers: 4.00
+var hamiltonCharacters = {
+    alexanderHamilton: "Lin-Manuel Miranda", 
+    angelicaSchuyler: "Renee Elise Goldsberry", 
+    thomasJefferson: "Daveed Diggs", 
+    johnLaurens: "Anthony Ramos"
 };
-for (var key in candyPrices){
-console.log(key); // prints the keys - chocolate, caramel, skittles, gobstoppers
-console.log(candyPrices[key]) // prints the values - 1.00, 2.00, 3.00, 4.00
+for (var key in hamiltonCharacters){
+console.log(key); // prints the keys - alexanderHamilton, angelicaScuyler, thomasJefferson, johnLaurens
+console.log(hamiltonCharacters[key]) // prints the values - Lin-Manuel Miranda, Renee Elise Goldsberry, Daveed Diggs, Anthony Ramos
 }
 
 
-//Loop over an Object
-var months = {
-    first: "january",
-    second: "february",
-    third: "march"
-};
-    
-for (var key in months) {
-    console.log(key) // prints the keys - first, second, third
-  console.log(months[key]); //prints the values - january, feburary, march
-}
 
 

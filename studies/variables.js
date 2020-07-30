@@ -22,12 +22,12 @@ var myName;
 console.log(myName); // prints => undefined
 
 // 2. initialization or assignment //
-myName = 'john';
-console.log(myName); // prints => john
+myName = 'burr';
+console.log(myName); // prints => burr
 
 // 3. re-assignment //
-myName = 'bob';
-console.log(myName); // prints => bob
+myName = 'mulligan';
+console.log(myName); // prints => mulligan
 
 // NOTE: We can assign and re-assign anything to a variable - we cannot do this with constants //
 var myVariable = 1;
@@ -72,9 +72,9 @@ myVariable = "someString";
 // age = 5; // an error will occur because it has already been assigned 
  
  //const is great when you have values that you know should not change. 
- const weekDays = 7; // => prints days of the week
- const monthsInYear = 12; // => prints months in a year
- const daysInYear = 365; // => days in a year
+ const hamiltonOffBroadway = 2015; // => prints year Hamilton was off broadway
+ const hamiltonFirstTour = 2017; // => prints year Hamilton was on tour
+ const hamiltonSecondTour = 2019; // => prints year Hamilton was on the second tour
  
  
  // 7. Hoisting //

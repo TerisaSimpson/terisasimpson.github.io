@@ -118,8 +118,8 @@ console.log(typeof hello); // => prints string
 // the condition comes first, followed by a ?
 // the truthy statement is then given, before the :
 // followed by the falsey statement
-var firstName = "Kirk";
-var lastName = "Franklin";
+var firstName = "Alexander";
+var lastName = "Hamilton";
 
 firstName===lastName?console.log("yep"):console.log("nope"); 
 

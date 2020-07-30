@@ -60,7 +60,8 @@ function getObjectKeys(object) {
   }
   
   //return newArray
-  return newArray
+  console.log(newArray);
+  return newArray;
   
   
   // YOUR CODE ABOVE HERE //
