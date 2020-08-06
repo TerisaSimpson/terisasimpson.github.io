@@ -21,16 +21,16 @@ function keysToString(object) {
 // Function 3 - Values to String /////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-function valuesToString(object) {
-     var newArray = Object.values(object)
-  var newStrings = []
+function valuesToString(object) { 
+     var newArray = Object.values(object) //create a new array for object values
+  var newStrings = [] //create a literal array to put the object in
 
-  for (var i = 0; i <= newArray.length-1; i++){
-    if (typeof newArray[i] === "string"){
-      newStrings.push(newArray[i])
+  for (var i = 0; i <= newArray.length-1; i++){ //loop object values
+    if (typeof newArray[i] === "string"){ //see if array is a string
+      newStrings.push(newArray[i]) //push values into new array
     }
   }
- return newStrings.join(" ")
+ return newStrings.join(" ") //return new array
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -40,10 +40,10 @@ function valuesToString(object) {
 function arrayOrObject(collection) {
     //return array if it is an array
     //return object if it is an object
-     if (Array.isArray(collection)){
-      return "array"
+     if (Array.isArray(collection)){ //test if the collection is array
+      return "array" //return array if its array
     } else {
-      return "object"
+      return "object" //return object if its not an array
     }
 }
 
@@ -67,7 +67,19 @@ function capitalizeAllWords(string) {
     //take a string 
     //return string with all capitalized words
     
-    return string[0].toUpperCase() 
+    var newString = []
+    var newString2 = []
+    for (var i = 0; i <= string.length-1; i++){
+      newString = newString + string[i]
+    }
+    var capitalWords = newString.split(" ")
+    console.log(capitalWords)
+    
+    for (var i = 0; i <= capitalWords.length-1; i++){
+     newString2.push(capitalWords[i][0].toUpperCase() + capitalWords[i].slice(1).toLowerCase())
+    }
+
+    return newString2.join(" ")
     
 }
 
@@ -77,6 +89,10 @@ function capitalizeAllWords(string) {
 
 function welcomeMessage(object) {
     // Should take an object with a name property and return 'Welcome <Name>!' 
+    //seperate the words
+    //capitalize first letter
+    //lowercase the last
+    //concat both
 return  `Welcome ${object.name[0].toUpperCase() + object.name.slice(1, object.name.length)}!`
 }
 
@@ -86,6 +102,10 @@ return  `Welcome ${object.name[0].toUpperCase() + object.name.slice(1, object.na
 
 function profileInfo(object) {
     //Should take an object with a name an a species and return '<Name> is a <Species>'
+    //seperate the words
+    //capitalize first letter
+    //lowercase the last
+    //concat both
     
 var newName = object.name[0].toUpperCase() + object.name.slice(1)
     var newSpecies = object.species[0].toUpperCase() + object.species.slice(1)
@@ -99,7 +119,8 @@ function maybeNoises(object) {
     //take object
     //if noises array, return them as a string separated by a space
 //if there are no noises return 'there are no noises' 
-if (object.noises.length > 0){
+
+if (Array.isArray(object.noises) && object.noises.length > 0){
   return object["noises"].join(" ")
 } else {
   return "there are no noises"
@@ -112,6 +133,7 @@ if (object.noises.length > 0){
 
 function hasWord(string, word) {
     //Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false.
+    //see if string has the word inside of it by "includes"
  if (string.includes(word)){
       return true
     } else {
@@ -125,8 +147,9 @@ function hasWord(string, word) {
 
 function addFriend (name, object) {
 //Should take a name and an object and add the name to the object's friends array then return the object 
+//push name to object friends
 object.friends.push(name)
-return object
+return object //return friends
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -135,10 +158,12 @@ return object
 
 function isFriend(name, object) {
     //Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
-     if (object.friends.includes(name)){
-      return true
+    
+   //test if object.friends is an array and object has the name in friends
+    if (Array.isArray(object.friends) && object.friends.includes(name)){
+      return true //return true
     } else {
-      return false
+      return false //return false
     }
 
 
@@ -149,15 +174,39 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    //Should take a name and a list of people, and return a list of all the names that <name> is not friends with 
+      var notListed = []; //create a literal array 
+    for (var i = 0; i <= array.length-1; i++){ //loop the array
+      if (name !== array[i].name && array[i].friends.includes(name) === false){
+        notListed.push(array[i].name);
+      }
+    }
+    return notListed;
 
 }
+    
+
+// let notFriends = []
+// for (let key in array){
+//     if (array[key].name !== name){
+//         if (array[key].friends.includes(name)){
+            
+//         } else {
+//             notFriends.push(array[key].name)
+//         }
+//     }
+// } return notFriends
+// }
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+object[key] = value //
+  return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -165,6 +214,14 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    //loop through the keys in our object
+    for (var key in object){
+        //if the array includes an object key
+        if (array.includes(key)){
+            //delete that objects key
+            delete object[key]
+        }
+    }
 
 }
 
@@ -173,7 +230,14 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    
+    var dedupArray = []
+    for (var i = 0; i <= array.length-1; i++){
+        if (!dedupArray.includes(array[i])){
+            dedupArray.push(array[i])
+        }
+    }
+  return dedupArray
 }
 
 //////////////////////////////////////////////////////////////////////
